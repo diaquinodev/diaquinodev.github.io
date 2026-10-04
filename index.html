@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diego Aquino · Analista de Dados · conciliação, pipelines, dashboards e automação</title>
+<meta name="description" content="Analista de Dados em São Paulo. Conciliação e validação de dados, pipelines e integração via API, dashboards e automação para PMEs, e-commerce e financeiro. Peça um diagnóstico.">
+<link rel="canonical" href="https://diaquinodev.github.io/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EFE8D8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1815" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego Aquino · Dados que batem.">
+<meta property="og:title" content="Diego Aquino · Analista de Dados · conciliação, pipelines, dashboards e automação">
+<meta property="og:description" content="Analista de Dados em São Paulo. Conciliação e validação de dados, pipelines e integração via API, dashboards e automação para PMEs, e-commerce e financeiro. Peça um diagnóstico.">
+<meta property="og:url" content="https://diaquinodev.github.io/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://diaquinodev.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selo DA e o texto Dados que batem. Diego Aquino, Analista de Dados">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://diaquinodev.github.io/assets/og.png">
+<link rel="icon" href="assets/icones/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icones/favicon_32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icones/apple-touch-icon.png">
+<link rel="preload" href="assets/fontes/shippori-mincho-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fontes/plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/movimento.css">
+<link rel="stylesheet" href="css/conciliacao.css">
+<link rel="stylesheet" href="css/hero.css">
+<script src="js/tema.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Diego Aquino","jobTitle":"Analista de Dados","email":"mailto:diaquinotech@gmail.com","telephone":"+55 11 97874-9171","contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"diaquinotech@gmail.com","telephone":"+55 11 97874-9171","availableLanguage":"pt-BR"},"address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressCountry":"BR"},"sameAs":["https://linkedin.com/in/diegoaquino87","https://github.com/diaquinodev"]}</script>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="selo-da" viewBox="0 0 100 100"><path fill="currentColor" fill-rule="evenodd" d="M7.48 4.03L6.96 4.14L6.47 4.3L6 4.54L5.56 4.83L5.17 5.17L4.83 5.56L4.54 6L4.3 6.47L4.14 6.96L4.03 7.48L4 8L4 92L4.03 92.52L4.14 93.04L4.3 93.53L4.54 94L4.83 94.44L5.17 94.83L5.56 95.17L6 95.46L6.47 95.7L6.96 95.86L7.48 95.97L8 96L50 96L50 52L46 52L46 4L8 4ZM8.69 70.15L8.73 69.78L8.89 69.55L10.11 69.51L11.01 69.35L11.41 69.22L11.97 68.95L12.6 68.45L12.98 67.91L13.26 67.22L13.44 66.37L13.53 64.98L13.53 34.96L13.44 33.58L13.26 32.72L13.09 32.25L12.87 31.84L12.46 31.36L11.79 30.9L11.01 30.59L10.11 30.44L8.89 30.39L8.77 30.23L8.69 29.88L8.7 29.44L8.79 29.17L8.89 29.09L9.01 29.06L17.81 29L22.66 29.04L25.35 29.16L26.46 29.3L27.57 29.53L29.21 30.02L30.3 30.45L31.39 30.96L33 31.88L34.52 33.01L35.93 34.36L37.23 35.93L38.41 37.72L39.13 39.03L39.45 39.73L40.02 41.19L40.48 42.75L40.68 43.57L40.99 45.28L41.26 48.04L41.3 50.99L41.2 52.88L40.85 55.55L40.48 57.2L40.26 57.99L39.75 59.5L39.13 60.91L38.03 62.84L37.23 64.01L35.93 65.58L34.52 66.93L33.52 67.71L32.47 68.39L30.85 69.25L29.21 69.92L27.57 70.41L25.9 70.72L23.19 70.93L18.8 71L13.07 70.96L8.94 70.88L8.82 70.82L8.75 70.69ZM92 96L92.52 95.97L93.04 95.86L93.53 95.7L94 95.46L94.44 95.17L94.83 94.83L95.17 94.44L95.46 94L95.7 93.53L95.86 93.04L95.97 92.52L96 92L96 8L95.97 7.48L95.86 6.96L95.7 6.47L95.46 6L95.17 5.56L94.83 5.17L94.44 4.83L94 4.54L93.53 4.3L93.04 4.14L92.52 4.03L92 4L50 4L50 48L54 48L54 96ZM92.68 70.33L92.61 70.83L92.54 70.95L92.4 71L77.32 71L77.18 70.97L77.05 70.78L77 70.38L77.04 69.94L77.16 69.71L77.27 69.66L78.13 69.59L79.08 69.44L79.86 69.22L80.34 69.01L80.73 68.75L81.02 68.42L81.22 68.02L81.33 67.55L81.31 66.69L81.07 65.48L78.6 56.85L67.18 56.85L64.87 64.86L64.73 65.77L64.73 66.81L64.8 67.23L65.08 67.97L65.54 68.58L66.19 69.05L67.02 69.39L67.51 69.51L68.04 69.59L69.28 69.66L69.38 69.71L69.47 69.88L69.52 70.24L69.5 70.66L69.41 70.91L69.24 71L57.64 71L57.51 70.97L57.4 70.86L57.34 70.62L57.32 70.24L57.36 69.94L57.45 69.74L57.6 69.66L58.49 69.56L59.12 69.37L59.92 68.95L60.51 68.51L61.07 67.95L61.58 67.27L62.05 66.45L62.47 65.5L62.73 64.79L73.51 30.06L76.54 29L76.82 29.08L77.03 29.31L85.54 59.19L87 64.14L87.72 66.31L88.1 67.22L88.48 67.92L88.88 68.47L89.3 68.9L89.88 69.27L90.54 69.49L91.38 69.61L92.48 69.67L92.63 69.88ZM23.58 69.18L24.68 69.11L25.41 68.98L26.13 68.79L26.86 68.53L27.59 68.2L28.68 67.59L29.39 67.09L30.4 66.12L31.03 65.33L31.93 63.95L32.77 62.32L33.28 61.09L33.72 59.74L34.09 58.26L34.39 56.65L34.7 53.99L34.81 52.06L34.84 50L34.81 47.92L34.7 45.98L34.39 43.31L34.09 41.69L33.72 40.21L33.28 38.85L32.49 37.05L31.64 35.51L31.03 34.61L30.07 33.48L29.39 32.86L28.31 32.13L27.23 31.57L26.5 31.28L25.77 31.05L24.68 30.83L23.25 30.76L22.4 30.8L21.43 30.96L20.85 31.16L20.38 31.44L20.02 31.81L19.75 32.27L19.55 32.85L19.43 33.54L19.39 34.34L19.39 65.61L19.43 66.43L19.61 67.33L19.92 68.03L20.25 68.42L20.68 68.71L21.43 68.99L22.4 69.15ZM78.05 54.78L73.05 37.22L67.78 54.78Z"/></symbol>
+<filter id="rugoso" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter>
+</svg>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <a class="cabecalho__marca" href="index.html" aria-label="Diego Aquino, Analista de Dados: página inicial">
+      <svg class="selo" aria-hidden="true" focusable="false"><use href="#selo-da"/></svg>
+      <span class="cabecalho__nome">Diego Aquino<span class="cabecalho__papel">Analista de Dados</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal"><ul><li><a href="servicos.html">Serviços</a></li><li><a href="projetos.html">Casos</a></li><li><a href="como-trabalho.html">Como trabalho</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul></nav>
+    <button class="alternar-tema" type="button" aria-pressed="false"><span class="sr-only">Modo escuro</span><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 0 0 14.5z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<main id="conteudo">
+<section class="heroi heroi--oferta heroi--fundo" aria-labelledby="t-heroi">
+  <div class="heroi__fundo" aria-hidden="true"><span class="fundo__papel"></span><span class="fundo__folha"></span><span class="fundo__fita"></span><span class="fundo__foco"></span></div>
+  <div class="container heroi__grade">
+    <div class="pilha pilha--lg">
+      <p class="rotulo">Diego Aquino · Analista de Dados · São Paulo, SP</p>
+      <h1 class="heroi__titulo heroi__titulo--oferta" id="t-heroi">Números que não batem? Eu confiro, integro e automatizo<span class="ponto">.</span></h1>
+      <p class="lead">Resolvo conciliação e validação de dados, pipelines e integração via API, dashboards e relatórios, e automação de rotinas manuais.</p>
+      <p class="heroi__para"><span class="rotulo">Para quem</span><strong>Pequenas e médias empresas, e-commerce e marketplaces, financeiro e operações.</strong></p>
+      <div class="heroi__ctas"><a class="botao botao--primario" href="contato.html?assunto=diagnostico">Peça um diagnóstico gratuito</a><a class="botao botao--secundario botao--sem-seta" href="https://wa.me/5511978749171?text=Ol%C3%A1%2C%20Diego%21%20Vi%20o%20seu%20site%20e%20quero%20conversar%20sobre%20um%20problema%20com%20dados." rel="noopener" target="_blank">Chamar no WhatsApp</a><a class="botao botao--secundario" href="projetos.html">Veja os casos</a></div>
+      <p class="origem">Casos do site: projetos de portfólio com dados fictícios ou sintéticos</p>
+    </div>
+    <div class="heroi__selo" aria-hidden="true"><svg class="selo selo--grande" focusable="false"><use href="#selo-da"/></svg></div>
+  </div>
+  <script>(function(){var h=document.querySelector(".heroi--fundo"),s=h&&h.querySelector(".heroi__selo .selo");if(!s)return;function p(){var a=h.getBoundingClientRect(),b=s.getBoundingClientRect();h.style.setProperty("--foco-x",(b.left-a.left+b.width/2).toFixed(1)+"px");h.style.setProperty("--foco-y",(b.top-a.top+b.height/2).toFixed(1)+"px")}p();addEventListener("resize",p);if(window.ResizeObserver)new ResizeObserver(p).observe(h)})()</script>
+</section>
+<section class="secao secao--baixa" aria-labelledby="t-concilia">
+  <div class="container pilha pilha--lg">
+    <div class="cabeca-secao cabeca-secao--solta"><p class="rotulo">Como eu confiro</p><h2 id="t-concilia">Linha a linha, origem contra destino<span class="ponto">.</span></h2>
+    <p class="lead">Toda conciliação segue a mesma ideia: cada linha da origem é comparada com a do destino. O que bate ganha “conferido”; o que não bate fica marcado para análise. Abaixo, um exemplo ilustrativo, com linhas genéricas e sem números.</p></div>
+    <div class="od" id="conciliacao-exemplo" data-conciliacao data-estado="concluido" data-total="6" data-ok="5" data-div="1">
+  <table class="tabela-od od__tabela">
+    <caption>Exemplo ilustrativo: linhas genéricas, sem números reais. “Origem” e “destino” são rótulos, não dados de cliente.</caption>
+    <thead><tr><th scope="col">Linha</th><th scope="col">Origem (exemplo)</th><th scope="col">Destino (exemplo)</th><th scope="col">Situação</th></tr></thead>
+    <tbody>
+    <tr data-estado="conferido" data-final="conferido"><th scope="row">Linha 1 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 1</td><td data-rotulo="Destino (exemplo)">razão, registro 1</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem = destino · Δ 0</span><span class="conferido"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></span></span></td></tr>
+    <tr data-estado="conferido" data-final="conferido"><th scope="row">Linha 2 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 2</td><td data-rotulo="Destino (exemplo)">razão, registro 2</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem = destino · Δ 0</span><span class="conferido"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></span></span></td></tr>
+    <tr data-estado="conferido" data-final="conferido"><th scope="row">Linha 3 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 3</td><td data-rotulo="Destino (exemplo)">razão, registro 3</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem = destino · Δ 0</span><span class="conferido"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></span></span></td></tr>
+    <tr data-estado="divergente" data-final="divergente"><th scope="row">Linha 4 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 4</td><td data-rotulo="Destino (exemplo)">razão, registro 4</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem ≠ destino · Δ ≠ 0</span><span class="situacao situacao--diverge od-sit__rot">divergente · em análise</span></span></span></td></tr>
+    <tr data-estado="conferido" data-final="conferido"><th scope="row">Linha 5 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 5</td><td data-rotulo="Destino (exemplo)">razão, registro 5</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem = destino · Δ 0</span><span class="conferido"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></span></span></td></tr>
+    <tr data-estado="conferido" data-final="conferido"><th scope="row">Linha 6 · lançamento</th><td data-rotulo="Origem (exemplo)">extrato, registro 6</td><td data-rotulo="Destino (exemplo)">razão, registro 6</td><td data-rotulo="Situação"><span class="od-sit"><span class="od-sit__pend">a conferir</span><span class="od-sit__ing">conferindo…</span><span class="od-sit__fim"><span class="od-sit__res">origem = destino · Δ 0</span><span class="conferido"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></span></span></td></tr>
+    </tbody>
+  </table>
+  <div class="od__rodape">
+    <div class="od__comando">
+      <div class="od__controles" role="group" aria-label="Controles da conciliação de exemplo">
+        <button type="button" class="botao botao--primario botao--sem-seta od__btn" data-od="reproduzir"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg><span>Reproduzir</span></button>
+        <button type="button" class="botao botao--secundario botao--sem-seta od__btn" data-od="reiniciar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M3 8a5 5 0 1 0 1.6-3.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/><path d="M2.6 1.8v3.6h3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg><span>Reiniciar</span></button>
+      </div>
+      <p class="od__estado" role="status" aria-live="polite" aria-atomic="true" data-fim="Conciliação concluída: 5 linhas conferidas e 1 divergente em análise. Exemplo ilustrativo, sem números reais.">Conciliação concluída: 5 linhas conferidas e 1 divergente em análise. Exemplo ilustrativo, sem números reais.</p>
+      <p class="od__linha" aria-hidden="true"></p>
+    </div>
+    <svg class="selo od__selo" aria-hidden="true" focusable="false"><use href="#selo-da"/></svg>
+  </div>
+</div>
+  </div>
+</section>
+<section class="secao secao--compacta" aria-labelledby="t-resolvo">
+  <div class="container">
+    <div class="cabeca-secao"><p class="rotulo">O que eu resolvo</p><h2 id="t-resolvo">Quatro problemas, quatro entregas<span class="ponto">.</span></h2>
+    <p class="lead">Cada serviço começa pelo problema que você tem hoje e termina numa entrega que você consegue conferir.</p></div>
+    <ul class="grade grade--estreita sem-lista"><li><article class="servico servico--compacto">
+  <p class="servico__n">01</p>
+  <h3 class="servico__titulo">Conciliação e validação de dados</h3>
+  <p class="servico__resumo">Seus números não batem entre ERP, marketplace e banco.</p>
+  <a class="botao botao--link" href="servicos.html#conciliacao">Ver o pacote<span class="sr-only"> de Conciliação e validação de dados</span></a>
+</article></li><li><article class="servico servico--compacto">
+  <p class="servico__n">02</p>
+  <h3 class="servico__titulo">Pipelines, ETL e integração via API</h3>
+  <p class="servico__resumo">Seus dados estão em sistemas que não conversam entre si.</p>
+  <a class="botao botao--link" href="servicos.html#pipelines">Ver o pacote<span class="sr-only"> de Pipelines, ETL e integração via API</span></a>
+</article></li><li><article class="servico servico--compacto">
+  <p class="servico__n">03</p>
+  <h3 class="servico__titulo">Dashboards e relatórios</h3>
+  <p class="servico__resumo">Existe um dashboard, mas ninguém confia nele.</p>
+  <a class="botao botao--link" href="servicos.html#dashboards">Ver o pacote<span class="sr-only"> de Dashboards e relatórios</span></a>
+</article></li><li><article class="servico servico--compacto">
+  <p class="servico__n">04</p>
+  <h3 class="servico__titulo">Automação</h3>
+  <p class="servico__resumo">Planilhas manuais que deveriam rodar sozinhas.</p>
+  <a class="botao botao--link" href="servicos.html#automacao">Ver o pacote<span class="sr-only"> de Automação</span></a>
+</article></li></ul>
+    <p class="espaco-topo"><a class="botao botao--link" href="servicos.html">Ver o que você recebe em cada pacote</a></p>
+  </div>
+</section>
+<section class="secao secao--baixa" aria-labelledby="t-quem">
+  <div class="container">
+    <div class="cabeca-secao"><p class="rotulo">Para quem</p><h2 id="t-quem">Quem mais se beneficia<span class="ponto">.</span></h2></div>
+    <ul class="grade grade--estreita para-quem sem-lista">
+      <li><h3>Pequenas e médias empresas</h3><p class="texto-2">A planilha virou sistema, e ninguém mais sabe de onde vem cada número.</p></li>
+      <li><h3>E-commerce e marketplaces</h3><p class="texto-2">ERP, marketplace e banco com três versões da mesma venda.</p></li>
+      <li><h3>Financeiro e operações</h3><p class="texto-2">Repasses, extratos, estoque e notas conferidos em rotina, e não só no fechamento.</p></li>
+    </ul>
+  </div>
+</section>
+<section class="secao secao--compacta" aria-labelledby="t-casos">
+  <div class="container">
+    <div class="cabeca-secao"><p class="rotulo">Casos</p><h2 id="t-casos">Código que dá para conferir<span class="ponto">.</span></h2>
+    <p class="lead">Três dos seis casos, todos no GitHub, com testes e CI. São projetos de portfólio: os dados são fictícios ou sintéticos.</p></div>
+    <ul class="grade grade--media sem-lista"><li><article class="cartao-projeto" id="card-auditor-de-repasses" data-conferido>
+  <div class="cartao-projeto__topo"><span class="cartao-projeto__n">01</span><h3 class="cartao-projeto__nome"><a href="projetos.html#auditor-de-repasses">auditor-de-repasses<span class="sr-only"> (ler o caso)</span></a></h3></div>
+  <p class="titulo cartao-projeto__titulo">Conferir o repasse do gateway contra o contrato</p>
+  <p class="cartao-projeto__resumo">Concilia taxas e prazos de repasse contra o contrato. IA só onde há texto; conta em código testado; pessoa aprova.</p>
+  <p class="origem">Projeto de portfólio · dados fictícios</p>
+  <ul class="tags" role="list"><li><span class="tag">Python</span></li><li><span class="tag">Data Quality</span></li><li><span class="tag">Conciliação financeira</span></li><li><span class="tag">IA aplicada</span></li></ul>
+  <dl class="cartao-projeto__fatos"><dt>Testes</dt><dd><span data-conta="66">66</span> · pytest, ruff e mypy</dd><dt>CI</dt><dd>GitHub Actions</dd><dt>Origem</dt><dd>portfólio, dados fictícios</dd></dl>
+  <span class="conferido "><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span>
+</article></li><li><article class="cartao-projeto" id="card-conciliacao-bancaria-automacao" data-conferido>
+  <div class="cartao-projeto__topo"><span class="cartao-projeto__n">02</span><h3 class="cartao-projeto__nome"><a href="projetos.html#conciliacao-bancaria-automacao">conciliacao-bancaria-automacao<span class="sr-only"> (ler o caso)</span></a></h3></div>
+  <p class="titulo cartao-projeto__titulo">Esteira diária de extratos de vários bancos</p>
+  <p class="cartao-projeto__resumo">Extração, ETL, SQL e painel para consolidar extratos de 8 bancos fictícios, com carga idempotente e regras de divergência.</p>
+  <p class="origem">Projeto de portfólio · dados sintéticos, sem bancos reais</p>
+  <ul class="tags" role="list"><li><span class="tag">Python</span></li><li><span class="tag">SQL</span></li><li><span class="tag">ETL</span></li><li><span class="tag">Power Query</span></li><li><span class="tag">APIs REST</span></li></ul>
+  <dl class="cartao-projeto__fatos"><dt>Testes</dt><dd><span data-conta="30">30</span> automatizados</dd><dt>CI</dt><dd>GitHub Actions · Python 3.12 e 3.13</dd><dt>Origem</dt><dd>portfólio, dados sintéticos</dd></dl>
+  <span class="conferido "><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span>
+</article></li><li><article class="cartao-projeto" id="card-dashboard-precificacao">
+  <div class="cartao-projeto__topo"><span class="cartao-projeto__n">03</span><h3 class="cartao-projeto__nome"><a href="projetos.html#dashboard-precificacao">dashboard-precificacao<span class="sr-only"> (ler o caso)</span></a></h3></div>
+  <p class="titulo cartao-projeto__titulo">Preço certo por canal, sem prejuízo escondido</p>
+  <p class="cartao-projeto__resumo">Dashboard que calcula o preço por marketplace resolvendo a taxa por faixa. Roda no navegador, com dados de exemplo fictícios.</p>
+  <p class="origem">Projeto de portfólio · dados de exemplo fictícios</p>
+  <ul class="tags" role="list"><li><span class="tag">Analytics</span></li><li><span class="tag">Regras de negócio</span></li><li><span class="tag">Visualização</span></li></ul>
+  <dl class="cartao-projeto__fatos"><dt>Testes</dt><dd><span data-conta="32">32</span> de unidade + 13 de ponta a ponta, conforme o README</dd><dt>CI</dt><dd>GitHub Actions</dd><dt>Origem</dt><dd>portfólio, dados de exemplo fictícios</dd></dl>
+  
+</article></li></ul>
+    <p class="espaco-topo"><a class="botao botao--link" href="projetos.html">Ver os seis casos</a></p>
+  </div>
+</section>
+<section class="secao secao--baixa" aria-labelledby="t-comeca">
+  <div class="container">
+    <div class="cabeca-secao"><p class="rotulo">Como começa</p><h2 id="t-comeca">Primeiro entender, depois propor<span class="ponto">.</span></h2></div>
+    <ol class="passos">
+      <li><strong>Você conta o problema.</strong> De onde o dado vem, para onde vai e o que precisa ser igual.</li>
+      <li><strong>Eu faço um diagnóstico.</strong> Olho uma amostra dos dados e digo o que encontrei. A conversa inicial para entender o problema é gratuita; o orçamento vem depois, em cima do que eu encontrar.</li>
+      <li><strong>Escopo por escrito.</strong> Só começo depois que o que é “bateu” está combinado.</li>
+    </ol>
+    <p class="espaco-topo"><a class="botao botao--link" href="como-trabalho.html">Ver o processo completo</a></p>
+  </div>
+</section>
+<section class="secao" aria-labelledby="t-cta">
+  <div class="container faixa-cta">
+    <p class="rotulo">Contato</p>
+    <h2 id="t-cta">Tem uma fonte que precisa bater com outra<span class="ponto">.</span></h2>
+    <p class="lead">Conte de onde o dado vem, para onde ele vai e o que precisa ser igual. A conversa inicial é gratuita; respondo com uma proposta de próximo passo.</p>
+    <div class="cluster"><a class="botao botao--primario" href="contato.html?assunto=diagnostico">Peça um diagnóstico gratuito</a><a class="botao botao--secundario botao--sem-seta" href="https://wa.me/5511978749171?text=Ol%C3%A1%2C%20Diego%21%20Vi%20o%20seu%20site%20e%20quero%20conversar%20sobre%20um%20problema%20com%20dados." rel="noopener" target="_blank">Chamar no WhatsApp</a><a class="botao botao--secundario" href="projetos.html">Veja os casos</a></div>
+  </div>
+</section>
+</main>
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__grade">
+      <div class="pilha pilha--sm">
+        <div class="rodape__marca"><svg class="selo" aria-hidden="true" focusable="false"><use href="#selo-da"/></svg><p class="rodape__assina">Dados que batem<span class="ponto">.</span></p></div>
+        <p class="texto-2 miudo">Diego Aquino · Analista de Dados · São Paulo, SP</p>
+      </div>
+      <nav aria-label="Rodapé: páginas">
+        <h2>Páginas</h2>
+        <ul>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="projetos.html">Casos</a></li>
+          <li><a href="como-trabalho.html">Como trabalho</a></li>
+          <li><a href="como-trabalho.html#faq">Perguntas frequentes</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="filosofia.html">Filosofia e ideias</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Fora daqui</h2>
+        <ul>
+          <li><a href="https://github.com/diaquinodev" rel="me noopener">GitHub · diaquinodev</a></li>
+          <li><a href="https://linkedin.com/in/diegoaquino87" rel="me noopener">LinkedIn · diegoaquino87</a></li>
+          <li>E-mail: <a href="mailto:diaquinotech@gmail.com">diaquinotech@gmail.com</a></li>
+          <li>WhatsApp: <a href="https://wa.me/5511978749171?text=Ol%C3%A1%2C%20Diego%21%20Vi%20o%20seu%20site%20e%20quero%20conversar%20sobre%20um%20problema%20com%20dados." rel="noopener" target="_blank">(11) 97874-9171</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__fim">
+      <p>Os casos deste site são projetos de portfólio com dados fictícios ou sintéticos, e isso está dito em cada um. Não publico dados de clientes.</p>
+      <p>© 2026 Diego Aquino</p>
+    </div>
+  </div>
+</footer>
+<script src="js/conciliacao.js"></script>
+<script src="js/movimento.js" defer></script>
+</body>
+</html>

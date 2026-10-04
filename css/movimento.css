@@ -1,0 +1,54 @@
+/* movimento.css — v5 · dinamismo sóbrio no site inteiro: revelações curtas ao rolar, hover/foco refinados, fio de progresso de leitura e contador discreto.
+   Regras: só transform/opacity (sem layout shift); nada essencial depende de movimento; prefers-reduced-motion = tudo parado e visível; vermelho nunca aparece aqui. */
+
+/* ---- revelar ao rolar: o JS só marca .rev nos blocos ABAIXO da dobra; sem JS tudo já está visível ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .rev { opacity: 0; transform: translateY(14px); }
+  .rev.rev--ok { opacity: 1; transform: none; transition: opacity 520ms var(--mov-curva) calc(var(--i, 0) * 70ms), transform 520ms var(--mov-curva) calc(var(--i, 0) * 70ms); }
+}
+@media print { .rev { opacity: 1 !important; transform: none !important; } }
+
+/* ---- contador (nº de testes nos cartões): largura travada em ch + algarismos tabulares = nenhum deslocamento do texto ---- */
+[data-conta] { display: inline-block; font-variant-numeric: tabular-nums; }
+
+/* ---- fio de progresso de leitura: 2 px no topo, em tinta (nunca vermelho), guiado pelo scroll (CSS puro; sem suporte = não aparece) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    body::before { content: ""; position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 60; pointer-events: none; background: var(--cor-tinta); opacity: .75;
+      transform-origin: 0 50%; transform: scaleX(0); animation: m-progresso linear both; animation-timeline: scroll(root block); }
+    @keyframes m-progresso { to { transform: scaleX(1); } }
+  }
+}
+@media print { body::before { display: none; } }
+
+/* ---- foco: o anel "assenta" (afasta 4 px → 3 px) em vez de aparecer seco ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .botao, .nav a, .alternar-tema { outline: 2px solid transparent; outline-offset: 7px; transition-property: background-color, color, border-color, transform, box-shadow, outline-offset, outline-color, background-size; }
+  .botao:focus-visible, .nav a:focus-visible, .alternar-tema:focus-visible { outline-color: var(--cor-foco); outline-offset: 3px; }
+}
+
+/* ---- navegação: o sublinhado cresce da esquerda ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .nav a { background: linear-gradient(var(--cor-linha-forte), var(--cor-linha-forte)) no-repeat 0 100% / 0 2px; }
+  .nav a:hover { border-block-end-color: transparent; background-size: 100% 2px; }
+  .nav a[aria-current="page"], .nav a[aria-current="page"]:hover { border-block-end-color: var(--cor-tinta); background-size: 0 2px; }
+}
+
+/* ---- hover (só com ponteiro real): botões e cartões levantam 1–3 px; a seta e o fio acompanham ---- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .botao--primario:hover:not(:active, [aria-disabled="true"]), .botao--secundario:hover:not(:active, [aria-disabled="true"]) { transform: translateY(-1px); box-shadow: var(--sombra-2); }
+  .botao--link::after { transition-duration: var(--mov-medio); }
+  .botao--link:hover::after { transform: translateX(5px); }
+  .cartao-projeto { transition: border-color var(--mov-medio) var(--mov-curva), box-shadow var(--mov-medio) var(--mov-curva), transform var(--mov-medio) var(--mov-curva); }
+  .cartao-projeto:hover { transform: translateY(-3px);
+    box-shadow: inset 0 0 0 var(--carimbo-intervalo) var(--cor-papel-alto), inset 0 0 0 calc(var(--carimbo-intervalo) + 1px) var(--cor-tinta), var(--sombra-2); }
+  .servico--compacto { transition: box-shadow var(--mov-medio) var(--mov-curva); }
+  .servico--compacto:hover { box-shadow: inset 0 2px 0 var(--cor-tinta); }
+  .servico--compacto .servico__titulo { transition: transform var(--mov-medio) var(--mov-curva); }
+  .servico--compacto:hover .servico__titulo { transform: translateX(3px); }
+  .para-quem > li { transition: transform var(--mov-medio) var(--mov-curva); }
+  .para-quem > li:hover { transform: translateX(3px); }
+  .alternar-tema:hover svg { transform: rotate(12deg); }
+  .alternar-tema[aria-pressed="true"]:hover svg { transform: scaleX(-1) rotate(12deg); }
+  .alternar-tema svg { transition: transform var(--mov-medio) var(--mov-curva); }
+}

@@ -1,0 +1,104 @@
+/* conciliacao.css — v2 · tabela origem × destino que "concilia" + selo DA que "bate".
+   Regras de movimento (RELATORIO.md, seção 5): no máximo 3 movimentos por tela, cada um uma vez, só transform/opacity,
+   sem loops. Movimentos: (1) varredura que confere a linha, (2) marcação do estado (carimbo "conferido" / barra da divergência),
+   (3) selo DA que bate no fim. Cor: tijolo só no selo e no "conferido" (herdado de componentes.css).
+   Sem JS ou com movimento reduzido: o HTML já está no estado final (data-estado="conferido|divergente"). */
+
+.od { display: grid; gap: var(--esp-5); }
+.od__tabela { margin: 0; }
+.od__tabela caption { padding-block-end: var(--esp-3); }
+.od__tabela tbody tr { position: relative; }
+.od__tabela tbody th { white-space: normal; }
+
+/* ---- situação: três camadas sobrepostas na mesma célula (a altura da linha não muda quando o estado troca) ---- */
+.od-sit { display: inline-grid; align-items: center; }
+.od-sit > * { grid-area: 1 / 1; }
+.od-sit__pend, .od-sit__ing { font: 400 var(--fonte-xs)/1.4 var(--fonte-mono); text-transform: uppercase; letter-spacing: var(--tracking-rotulo); color: var(--cor-tinta-2); visibility: hidden; }
+.od-sit__fim { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--esp-1) var(--esp-3); }
+.od-sit__res { font: 400 var(--fonte-sm)/1.4 var(--fonte-mono); font-variant-numeric: tabular-nums; }
+.od-sit__rot { text-transform: uppercase; }
+/* tamanho original do "conferido" (fonte-md, bold = texto grande): o vermelho do tema escuro só passa AA como texto grande */
+.od__tabela .conferido { padding: .3em .65em .3em .5em; }
+
+.od__tabela tr[data-estado="pendente"] > th, .od__tabela tr[data-estado="pendente"] > td { color: var(--cor-tinta-2); }
+.od__tabela tr[data-estado="pendente"] .od-sit__pend,
+.od__tabela tr[data-estado="conferindo"] .od-sit__ing { visibility: visible; }
+.od__tabela tr[data-estado="pendente"] .od-sit__fim,
+.od__tabela tr[data-estado="conferindo"] .od-sit__fim { visibility: hidden; }
+
+/* linha divergente: fica marcada (barra + sublinhado duplo + texto), nunca só pela cor */
+.od__tabela tr[data-estado="divergente"] { background: var(--cor-papel-baixo); }
+.od__tabela tr[data-estado="divergente"] > th, .od__tabela tr[data-estado="divergente"] > td { box-shadow: none; }
+.od__tabela tbody tr:hover { background: var(--cor-papel-baixo); }
+
+/* ATENÇÃO: não usar ::before/::after em <tr> de tabela de verdade (o Chrome cria uma célula anônima e empurra a linha).
+   Telas largas: barra no th da linha e varredura em cada célula (escalonada). Celular (linhas em bloco): pseudo no próprio tr. */
+@media (min-width: 40em) {
+  .od__tabela tbody tr > * { position: relative; }
+  .od__tabela tbody tr > *::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: 0; height: 2px; background: var(--cor-tinta); transform: scaleX(0); transform-origin: left; opacity: 0; pointer-events: none; }
+  .od__tabela tr[data-estado="divergente"] > th::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 0; width: 3px; background: var(--cor-tinta); transform-origin: top; pointer-events: none; }
+}
+@media (max-width: 39.99em) {
+  .od__tabela tbody tr::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: 0; height: 2px; background: var(--cor-tinta); transform: scaleX(0); transform-origin: left; opacity: 0; pointer-events: none; }
+  .od__tabela tr[data-estado="divergente"]::before { content: ""; position: absolute; inset-block: var(--esp-3); inset-inline-start: 0; width: 3px; background: var(--cor-tinta); transform-origin: top; pointer-events: none; }
+}
+
+/* ---- barra de comando (estilo Aya Diab: Reproduzir / Reiniciar + frase de estado) ---- */
+.od__rodape { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--esp-5) var(--esp-6); }
+.od__comando { display: grid; gap: var(--esp-3); flex: 1 1 22rem; min-width: 0; max-width: var(--medida-texto); }
+.od__controles { display: flex; flex-wrap: wrap; gap: var(--esp-3); }
+.od__btn { gap: var(--esp-2); }
+.od__btn[aria-disabled="true"] { cursor: default; }
+.od__estado { margin: 0; font: 400 var(--fonte-sm)/1.5 var(--fonte-mono); color: var(--cor-tinta); overflow-wrap: anywhere; }
+.od__linha { margin: 0; min-height: 1.4em; font: 400 var(--fonte-xs)/1.4 var(--fonte-mono); letter-spacing: var(--tracking-rotulo); text-transform: uppercase; color: var(--cor-tinta-2); }
+.od__linha:empty { display: block; visibility: hidden; } /* v5: a linha "Linha n de N" reserva o espaço (antes display:none) para não empurrar a página */
+
+/* selo DA: remate. Parado = estado final (levemente inclinado, como o carimbo "conferido") */
+.od__selo { width: clamp(5rem, 3.5rem + 5vw, 7.5rem); height: clamp(5rem, 3.5rem + 5vw, 7.5rem); transform: rotate(-2deg); flex: none; }
+.od[data-estado="inicial"] .od__selo, .od[data-estado="tocando"] .od__selo { opacity: 0; }
+
+/* ---- animação (só quando o JS marca .od--anima; movimento reduzido nunca marca) ---- */
+.od--anima .od__tabela tr[data-estado="conferido"] .conferido { animation: carimbar 260ms var(--mov-curva) both; }
+.od--anima[data-estado="concluido"] .od__selo { animation: od-bater 550ms var(--mov-curva) both; }
+@media (min-width: 40em) {
+  .od--anima .od__tabela tr[data-estado="conferindo"] > *::after { animation: od-varrer-cel 100ms linear both; }
+  .od--anima .od__tabela tr[data-estado="conferindo"] > :nth-child(2)::after { animation-delay: 90ms; }
+  .od--anima .od__tabela tr[data-estado="conferindo"] > :nth-child(3)::after { animation-delay: 180ms; }
+  .od--anima .od__tabela tr[data-estado="conferindo"] > :nth-child(4)::after { animation-delay: 270ms; }
+  .od--anima .od__tabela tr[data-estado="divergente"] > th::before { animation: od-marcar 260ms var(--mov-curva) both; }
+}
+@media (max-width: 39.99em) {
+  .od--anima .od__tabela tr[data-estado="conferindo"]::after { animation: od-varrer 380ms var(--mov-curva) both; }
+  .od--anima .od__tabela tr[data-estado="divergente"]::before { animation: od-marcar 260ms var(--mov-curva) both; }
+}
+
+@keyframes od-varrer { 0% { transform: scaleX(0); opacity: 1; } 70% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes od-varrer-cel { from { transform: scaleX(0); opacity: 1; } to { transform: scaleX(1); opacity: 1; } }
+@keyframes od-marcar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+/* selo que bate: ~0,55 s, só transform e opacity (referência: carimbo de あわい) */
+@keyframes od-bater {
+  0%   { opacity: 0; transform: scale(1.7) rotate(-9deg); }
+  45%  { opacity: 1; transform: scale(.92) rotate(-2deg); }
+  72%  { opacity: 1; transform: scale(1.04) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-2deg); }
+}
+
+/* celular: o selo acompanha a frase de estado em vez de ficar sozinho numa linha */
+@media (max-width: 39.99em) {
+  .od__rodape { gap: var(--esp-4); }
+  .od__selo { margin-inline-start: auto; }
+  .od__tabela tr[data-estado="divergente"] { box-shadow: none; }
+}
+
+/* impressão: sempre o estado final */
+@media print {
+  .od-sit__pend, .od-sit__ing { display: none; }
+  .od .od-sit__fim { visibility: visible !important; }
+  .od .od__selo { opacity: 1 !important; }
+  .od__controles { display: none; }
+}
+
+/* movimento reduzido: estado final sem animar nem transicionar (base.css deixaria 0,01 ms, que ainda cria transições vazias) */
+@media (prefers-reduced-motion: reduce) {
+  .od, .od *, .od *::before, .od *::after { animation: none !important; transition: none !important; }
+}

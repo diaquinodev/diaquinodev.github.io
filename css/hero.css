@@ -1,0 +1,52 @@
+/* hero.css — v5 · hero da home: selo DA (SVG da v3) que BATE sobre papel washi desfocado.
+   UMA animação só: o selo bate (od-bater, 0,55 s) e, no instante do contato, uma micro-onda de foco atravessa o papel (uma faixa de papel nítido que se
+   afasta do selo e assenta no desfoque de repouso). Sem WebGL, sem JS para animar. Parado = estado final. Vermelho: só o selo (fora daqui). */
+@property --foco-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+:root { --hero-papel: url("../assets/hero/washi-claro.webp"); --hero-sombra: rgba(27, 24, 21, .30); --hero-fita: rgba(205, 188, 148, .55); --hero-selo-sombra: rgba(27, 24, 21, .30); --hero-onda-brilho: 1.03; }
+@media (prefers-color-scheme: dark) { :root:not([data-tema="claro"]) { --hero-papel: url("../assets/hero/washi-escuro.webp"); --hero-sombra: rgba(0, 0, 0, .62); --hero-fita: rgba(120, 104, 74, .42); --hero-selo-sombra: rgba(0, 0, 0, .6); --hero-onda-brilho: 1.3; } }
+:root[data-tema="escuro"] { --hero-papel: url("../assets/hero/washi-escuro.webp"); --hero-sombra: rgba(0, 0, 0, .62); --hero-fita: rgba(120, 104, 74, .42); --hero-selo-sombra: rgba(0, 0, 0, .6); --hero-onda-brilho: 1.3; }
+
+.heroi--fundo { position: relative; isolation: isolate; overflow: clip; --foco-x: 80%; --foco-y: 60%; }
+
+/* ---- fundo: papel + duas peças fora de foco (folha e fita); tudo desfocado, nada se move em repouso ---- */
+.heroi__fundo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; user-select: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 78%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0, #000 78%, transparent 100%); }
+.fundo__papel, .fundo__foco { position: absolute; inset: -3rem; background: var(--hero-papel) 0 0 / 512px 512px; }
+.fundo__papel { filter: blur(7px); }
+.fundo__folha, .fundo__fita { position: absolute; left: var(--foco-x); top: var(--foco-y); filter: blur(9px); }
+.fundo__folha { width: 19rem; height: 14rem; margin: -7rem 0 0 -9.5rem; background: var(--cor-papel-alto); transform: rotate(-5deg); border-radius: 2px; opacity: .94; box-shadow: 0 1.6rem 3rem -1.2rem var(--hero-sombra); }
+.fundo__fita { width: 7rem; height: 1.9rem; margin: -8.4rem 0 0 -12.6rem; background: var(--hero-fita); transform: rotate(-34deg); border-radius: 1px; }
+
+/* a onda de foco: o mesmo papel, menos desfocado, só numa faixa que se afasta do selo (máscara radial animada) */
+.fundo__foco { filter: blur(.4px) brightness(var(--hero-onda-brilho, 1.03)); opacity: 0;
+  -webkit-mask-image: radial-gradient(circle at calc(var(--foco-x) + 3rem) calc(var(--foco-y) + 3rem), transparent calc(var(--foco-r) - 7rem), #000 var(--foco-r), transparent calc(var(--foco-r) + 5rem));
+          mask-image: radial-gradient(circle at calc(var(--foco-x) + 3rem) calc(var(--foco-y) + 3rem), transparent calc(var(--foco-r) - 7rem), #000 var(--foco-r), transparent calc(var(--foco-r) + 5rem)); }
+
+/* ---- selo: o SVG da v3 (use #selo-da), na mesma pose do selo que bate na conciliação (levemente inclinado) ---- */
+.heroi--fundo .heroi__selo { display: block; position: relative; order: -1; justify-self: start; padding-block-end: var(--esp-2); }
+.heroi--fundo .heroi__selo .selo { position: relative; transform: rotate(-2deg); }
+.heroi--fundo .heroi__selo::before { content: ""; position: absolute; inset: 7% 2% 0 2%; border-radius: 4%; background: var(--hero-selo-sombra); filter: blur(14px); transform: translateY(.6rem); opacity: .5; }
+@media (min-width: 56em) { .heroi--fundo .heroi__selo { order: 0; justify-self: end; padding-block-end: var(--esp-3); } .fundo__folha { width: 30rem; height: 22rem; margin: -11rem 0 0 -15rem; } .fundo__fita { width: 8.5rem; height: 2.1rem; margin: -12.2rem 0 0 -19rem; } }
+
+/* ---- a animação (só com movimento permitido; movimento reduzido = estado final, sem atraso) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .heroi--fundo .heroi__selo .selo { animation: heroi-bater 550ms var(--mov-curva) 220ms both; }
+  .heroi--fundo .heroi__selo::before { animation: heroi-sombra 550ms var(--mov-curva) 220ms both; }
+  .heroi--fundo .fundo__foco { animation: heroi-onda 1000ms cubic-bezier(.25, .1, .2, 1) 468ms both; } /* 220 ms de atraso + 45 % de 550 ms = o contato */
+}
+@keyframes heroi-bater { /* igual a od-bater (conciliacao.css): ~0,55 s, só transform e opacity */
+  0%   { opacity: 0; transform: scale(1.7) rotate(-9deg); }
+  45%  { opacity: 1; transform: scale(.92) rotate(-2deg); }
+  72%  { opacity: 1; transform: scale(1.04) rotate(-2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-2deg); }
+}
+@keyframes heroi-sombra { /* a sombra acompanha o selo: larga e fraca no ar, curta e densa no contato, assenta */
+  0%   { opacity: 0; transform: translateY(2.6rem) scale(1.5); }
+  45%  { opacity: .85; transform: translateY(.15rem) scale(.9); }
+  72%  { opacity: .6; transform: translateY(.5rem) scale(1.03); }
+  100% { opacity: .5; transform: translateY(.6rem) scale(1); }
+}
+@keyframes heroi-onda { 0% { --foco-r: 0px; opacity: 0; } 10% { opacity: .95; } 100% { --foco-r: 80rem; opacity: 0; } }
+
+@media (forced-colors: active) { .heroi__fundo { display: none; } }
