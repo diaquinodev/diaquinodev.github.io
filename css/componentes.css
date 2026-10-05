@@ -229,3 +229,13 @@ a.tag:hover { background: var(--cor-papel-alto); border-color: var(--cor-tinta);
 .servico--compacto .servico__titulo { font-size: var(--fonte-lg); margin-block-start: 0; }
 .servico--compacto .servico__resumo { font-size: var(--fonte-base); margin-block-start: 0; }
 @media (min-width: 56em) { .servico--compacto { grid-template-columns: 1fr; gap: var(--esp-3); } }
+
+/* ---- v5 · formulário com envio pelo FormSubmit: honeypot invisível, linha de estado e bloco de erro (mesma linguagem do erro de campo) ---- */
+.formulario__mel { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.formulario__status { margin: 0; min-height: 1.5em; font: 400 var(--fonte-sm)/1.5 var(--fonte-mono); color: var(--cor-tinta-2); }
+.formulario__status:empty { visibility: hidden; }
+.formulario__erro { display: grid; gap: var(--esp-3); justify-items: start; padding: var(--esp-5) var(--esp-5) var(--esp-5) var(--esp-4); border-inline-start: 3px double var(--cor-tinta); background: var(--cor-papel-alto); }
+.formulario__erro[hidden] { display: none; }
+.formulario__erro::before { content: "Confira"; font: 400 var(--fonte-xs)/1 var(--fonte-mono); text-transform: uppercase; letter-spacing: var(--tracking-rotulo); color: var(--cor-tinta-2); }
+.formulario__erro:focus { outline: 2px solid var(--cor-foco); outline-offset: 3px; }
+.formulario[aria-busy="true"] .entrada, .formulario[aria-busy="true"] .area, .formulario[aria-busy="true"] .selecao { opacity: .75; }

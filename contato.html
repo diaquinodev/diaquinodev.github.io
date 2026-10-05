@@ -61,8 +61,11 @@
 </section>
 <section class="secao secao--compacta" aria-label="Formulário e outros canais">
   <div class="container grade grade--contato">
-    <div class="medida"><form class="formulario" data-formulario data-mailto="diaquinotech@gmail.com" action="mailto:diaquinotech@gmail.com" method="post" enctype="text/plain" aria-describedby="aviso-form">
-  <p class="formulario__aviso" id="aviso-form">Este formulário não tem servidor: ao enviar, ele abre o seu aplicativo de e-mail com a mensagem pronta para diaquinotech@gmail.com. Nada é enviado por este site.</p>
+    <div class="medida"><form class="formulario" data-formulario data-envio="https://formsubmit.co/ajax/diaquinotech@gmail.com" action="https://formsubmit.co/diaquinotech@gmail.com" method="post" aria-describedby="aviso-form">
+  <p class="formulario__aviso" id="aviso-form">Ao enviar, seu nome, seu e-mail, o assunto e a mensagem passam pelo serviço FormSubmit e chegam direto ao meu e-mail. Você continua nesta página. Este site não guarda nada.</p>
+  <input type="hidden" name="_subject" value="Contato pelo site diaquinodev.github.io">
+  <input type="hidden" name="_template" value="table">
+  <div class="formulario__mel" aria-hidden="true"><label for="mel">Não preencha este campo</label><input id="mel" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
   <div class="campo">
     <label class="campo__rotulo" for="nome">Nome <span class="campo__confere" aria-hidden="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span></label>
     <input class="entrada" id="nome" name="nome" type="text" autocomplete="name" required aria-describedby="erro-nome">
@@ -84,13 +87,19 @@
     <p class="campo__ajuda" id="ajuda-msg">Conte qual é a origem, qual é o destino e o que precisa bater. Mínimo de 20 caracteres. Não envie dados sensíveis nesta primeira mensagem.</p>
     <p class="campo__erro" id="erro-mensagem" aria-live="polite"></p>
   </div>
-  <div class="cluster"><button class="botao botao--primario" type="submit">Montar e-mail</button><a class="botao botao--secundario" href="mailto:diaquinotech@gmail.com?subject=Diagn%C3%B3stico%20de%20dados">Escrever direto por e-mail</a><a class="botao botao--secundario botao--sem-seta" href="https://wa.me/5511978749171?text=Ol%C3%A1%2C%20Diego%21%20Vi%20o%20seu%20site%20e%20quero%20conversar%20sobre%20um%20problema%20com%20dados." rel="noopener" target="_blank">Chamar no WhatsApp</a></div>
+  <div class="cluster"><button class="botao botao--primario botao--sem-seta" type="submit" data-enviar>Enviar mensagem</button></div>
+  <p class="formulario__status" id="status-form" role="status" aria-live="polite"></p>
+  <div class="formulario__erro" id="falha" tabindex="-1" hidden>
+    <p class="titulo titulo--lg">A mensagem não foi enviada<span class="ponto">.</span></p>
+    <p>O envio falhou agora, mas o que você escreveu continua no formulário. Tente de novo em instantes ou fale comigo direto:</p>
+    <div class="cluster"><a class="botao botao--secundario botao--sem-seta" href="mailto:diaquinotech@gmail.com?subject=Contato%20pelo%20site">E-mail: diaquinotech@gmail.com</a><a class="botao botao--secundario botao--sem-seta" href="https://wa.me/5511978749171?text=Ol%C3%A1%2C%20Diego%21%20Vi%20o%20seu%20site%20e%20quero%20conversar%20sobre%20um%20problema%20com%20dados." rel="noopener" target="_blank">Chamar no WhatsApp</a></div>
+  </div>
 </form>
 <div class="formulario__sucesso" id="sucesso" tabindex="-1" hidden role="status">
   <span class="conferido conferido--entra"><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span>
-  <p class="titulo titulo--lg">Campos conferidos<span class="ponto">.</span></p>
-  <p>Seu aplicativo de e-mail deve abrir com a mensagem pronta; é só enviar. <strong>Este site não enviou nada.</strong> Se o aplicativo não abriu, escreva para <a href="mailto:diaquinotech@gmail.com">diaquinotech@gmail.com</a>.</p>
-  <button class="botao botao--secundario botao--sem-seta" type="button" id="novo">Voltar ao formulário</button>
+  <p class="titulo titulo--lg">Mensagem enviada<span class="ponto">.</span></p>
+  <p>Ela chegou ao meu e-mail pelo FormSubmit. Respondo no endereço que você informou.</p>
+  <button class="botao botao--secundario botao--sem-seta" type="button" id="novo">Escrever outra mensagem</button>
 </div></div>
     <aside class="pilha" aria-labelledby="t-canais">
       <h2 id="t-canais" class="titulo--lg">Outros caminhos</h2>
@@ -102,7 +111,7 @@
         <li><span class="rotulo">Localização</span>São Paulo, SP</li>
       </ul>
       <p class="nota-honesta">Não preciso de dados sensíveis na primeira mensagem. Descreva o formato e o problema; os dados reais, só depois de combinarmos como tratá-los.</p>
-      <p class="nota-honesta">Privacidade: este site não usa cookies de rastreamento nem analytics, e carrega as fontes do próprio servidor. O formulário não envia dados a nenhum servidor: ele monta uma mensagem no seu aplicativo de e-mail, e ela só segue se você enviar. O único dado guardado no seu navegador é a escolha de tema claro ou escuro. O site é hospedado no GitHub Pages, que mantém os próprios registros de acesso.</p>
+      <p class="nota-honesta">Privacidade: este site não usa cookies de rastreamento nem analytics, e carrega as fontes do próprio servidor. Ao enviar o formulário, seu nome, seu e-mail, o assunto e a mensagem passam pelo serviço <a href="https://formsubmit.co/privacy.pdf" rel="noopener">FormSubmit</a> (que tem a própria política de privacidade) e chegam ao meu e-mail; nada fica guardado neste site. O único dado guardado no seu navegador é a escolha de tema claro ou escuro. O site é hospedado no GitHub Pages, que mantém os próprios registros de acesso.</p>
     </aside>
   </div>
 </section>
