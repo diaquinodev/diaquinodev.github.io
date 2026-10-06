@@ -102,3 +102,6 @@
 @media (prefers-reduced-motion: reduce) {
   .od, .od *, .od *::before, .od *::after { animation: none !important; transition: none !important; }
 }
+
+/* v6 · no celular, a escala do carimbo ao "bater" (od-bater) passava ~17 px da borda da tela por um instante e o Chrome alargava a página (rolagem lateral). Corta só fora da seção. */
+.secao:has(.od) { overflow-x: clip; }

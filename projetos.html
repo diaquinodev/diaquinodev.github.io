@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="css/componentes.css">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/movimento.css">
+<link rel="stylesheet" href="css/imagens.css">
 <script src="js/tema.js"></script>
 </head>
 <body>
@@ -50,7 +51,7 @@
   </div>
 </header>
 <main id="conteudo">
-<section class="secao secao--compacta" aria-labelledby="t-pagina">
+<section class="secao secao--compacta secao--sumi" aria-labelledby="t-pagina">
   <div class="container">
     <div class="cabeca-secao">
       <p class="rotulo">Casos</p>
@@ -62,7 +63,7 @@
 <section class="secao secao--compacta" aria-label="Aviso sobre os casos">
   <div class="container"><p class="nota-honesta">Nenhum caso aqui é trabalho feito para cliente real, e nenhum afirma ganho financeiro ou de tempo medido em operação. O que está escrito como resultado é o que o repositório mostra: testes, CI e execução com dados fictícios ou sintéticos. A experiência profissional anterior está resumida em <a href="sobre.html">Sobre</a>, sem dados nem detalhes de empresas.</p></div>
 </section>
-<section class="secao secao--compacta" aria-label="Estudos de caso">
+<section class="secao secao--compacta secao--washi" aria-label="Estudos de caso">
   <div class="container"><article class="caso caso--destaque" id="auditor-de-repasses" aria-labelledby="h-auditor-de-repasses">
   <div class="caso__topo">
     <p class="rotulo">Caso em destaque 01</p>
@@ -71,6 +72,8 @@
     <p class="origem">Projeto de portfólio · dados fictícios</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/auditor-de-repasses-claro-800.webp" srcset="assets/capas/auditor-de-repasses-claro-480.webp 480w, assets/capas/auditor-de-repasses-claro-800.webp 800w, assets/capas/auditor-de-repasses-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso auditor-de-repasses: saída real do terminal do eval em modo demo, com 20 cenários de divergências plantadas. Nos cinco tipos de divergência, as achadas são iguais às plantadas, sem perdidas nem falsas; recall do motor de 100%, extração de regras correta em 20 de 20 e resultado APROVADO. Ao lado, pytest com 66 testes passando."><img class="capa__img capa__img--escuro" src="assets/capas/auditor-de-repasses-escuro-800.webp" srcset="assets/capas/auditor-de-repasses-escuro-480.webp 480w, assets/capas/auditor-de-repasses-escuro-800.webp 800w, assets/capas/auditor-de-repasses-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso auditor-de-repasses: saída real do terminal do eval em modo demo, com 20 cenários de divergências plantadas. Nos cinco tipos de divergência, as achadas são iguais às plantadas, sem perdidas nem falsas; recall do motor de 100%, extração de regras correta em 20 de 20 e resultado APROVADO. Ao lado, pytest com 66 testes passando."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio com dados fictícios.</strong> Na capa: saída real do eval em modo demo (o modo demo mede o código, não a IA), rodado em 05/10/2026 a partir do commit fa93b06.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Cenário fictício: um seller de e-commerce que recebe repasses de um payment gateway, com descontos de MDR, antecipação, estornos e prazos de pagamento.</dd></div>
       <div><dt>Problema</dt><dd>Conferir linha a linha contra o contrato é manual e lento. Cobrança indevida vira perda silenciosa, e a divergência a favor passa despercebida até o parceiro cobrar de volta.</dd></div>
@@ -89,6 +92,8 @@
     <p class="origem">Projeto de portfólio · dados sintéticos, sem bancos reais</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/conciliacao-bancaria-automacao-claro-800.webp" srcset="assets/capas/conciliacao-bancaria-automacao-claro-480.webp 480w, assets/capas/conciliacao-bancaria-automacao-claro-800.webp 800w, assets/capas/conciliacao-bancaria-automacao-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso conciliacao-bancaria-automacao: saída real do terminal da esteira rodada duas vezes sobre o mesmo lote sintético. Na primeira execução, 216 novas transações inseridas com chave SHA-256 única; na segunda, as 216 transações idênticas são detectadas e ignoradas. Ao lado, pytest com 30 testes passando."><img class="capa__img capa__img--escuro" src="assets/capas/conciliacao-bancaria-automacao-escuro-800.webp" srcset="assets/capas/conciliacao-bancaria-automacao-escuro-480.webp 480w, assets/capas/conciliacao-bancaria-automacao-escuro-800.webp 800w, assets/capas/conciliacao-bancaria-automacao-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso conciliacao-bancaria-automacao: saída real do terminal da esteira rodada duas vezes sobre o mesmo lote sintético. Na primeira execução, 216 novas transações inseridas com chave SHA-256 única; na segunda, as 216 transações idênticas são detectadas e ignoradas. Ao lado, pytest com 30 testes passando."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio com dados sintéticos.</strong> Na capa: saída real da etapa 1 da esteira, rodada duas vezes sobre o lote de referência, rodado em 05/10/2026 a partir do commit 7a4e1a7.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Cenário hipotético: uma área financeira com 8 contas em bancos diferentes, cada extrato num formato e num horário. Os bancos e os dados são sintéticos; não há integração com nenhuma instituição real.</dd></div>
       <div><dt>Problema</dt><dd>Extratos em formatos distintos, cargas repetidas que duplicam lançamentos e divergências que só aparecem no fechamento.</dd></div>
@@ -107,6 +112,8 @@
     <p class="origem">Projeto de portfólio · dados de exemplo fictícios</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/dashboard-precificacao-claro-800.webp" srcset="assets/capas/dashboard-precificacao-claro-480.webp 480w, assets/capas/dashboard-precificacao-claro-800.webp 800w, assets/capas/dashboard-precificacao-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."><img class="capa__img capa__img--escuro" src="assets/capas/dashboard-precificacao-escuro-800.webp" srcset="assets/capas/dashboard-precificacao-escuro-480.webp 480w, assets/capas/dashboard-precificacao-escuro-800.webp 800w, assets/capas/dashboard-precificacao-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio com dados de exemplo fictícios.</strong> Na capa: trecho real do motor de cálculo; testes de unidade executados, rodado em 05/10/2026 a partir do commit af38327.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Quem vende o mesmo produto em vários marketplaces (Shopee, Mercado Livre, TikTok Shop e Shein) precisa saber por quanto anunciar em cada canal. É a reescrita, com testes, de uma ferramenta que fiz antes para consultorias de e-commerce. Roda no navegador, sem login.</dd></div>
       <div><dt>Problema</dt><dd>A taxa muda conforme a faixa de preço, e o preço depende da taxa. Na planilha, o erro comum é usar a taxa da faixa errada. Exemplo do README: a fórmula simples usa a taxa da faixa errada e, nesse preço, o marketplace cobra mais, então cada venda dá prejuízo; o preço certo fica numa faixa acima.</dd></div>
@@ -125,6 +132,8 @@
     <p class="origem">Projeto de portfólio · sem dados de operação no repositório</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/wms-bling-claro-800.webp" srcset="assets/capas/wms-bling-claro-480.webp 480w, assets/capas/wms-bling-claro-800.webp 800w, assets/capas/wms-bling-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso wms-bling: diagrama do fluxo gerado a partir do código. Um agendamento node-cron a cada hora chama executarVerificacao, que filtra os produtos em risco e envia alertas a um grupo do WhatsApp; o servidor Express expõe as rotas de produtos, checkout, WMS e exportação e consulta a API v3 do Bling. Ao lado, node --test com 7 testes aprovados e nenhuma falha."><img class="capa__img capa__img--escuro" src="assets/capas/wms-bling-escuro-800.webp" srcset="assets/capas/wms-bling-escuro-480.webp 480w, assets/capas/wms-bling-escuro-800.webp 800w, assets/capas/wms-bling-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso wms-bling: diagrama do fluxo gerado a partir do código. Um agendamento node-cron a cada hora chama executarVerificacao, que filtra os produtos em risco e envia alertas a um grupo do WhatsApp; o servidor Express expõe as rotas de produtos, checkout, WMS e exportação e consulta a API v3 do Bling. Ao lado, node --test com 7 testes aprovados e nenhuma falha."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio, sem dados de operação no repositório.</strong> Na capa: fluxo extraído do código (rotas, cron e funções); testes das regras do robô executados, rodado em 05/10/2026 a partir do commit 07d3f08.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Loja de moda omnichannel que vende no site próprio e em marketplaces, com o estoque controlado no ERP Bling. O repositório não traz dados de operação e, para rodar, exige credenciais próprias do Bling.</dd></div>
       <div><dt>Problema</dt><dd>Produtos zeravam sem ninguém perceber e o anúncio continuava ativo; a conferência de pedidos era manual, com erro de item e de baixa; as planilhas de estoque para o hub de marketplaces eram montadas à mão.</dd></div>
@@ -143,6 +152,8 @@
     <p class="origem">Projeto de portfólio · sem dados de clientes no repositório</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/radar-marketplace-claro-800.webp" srcset="assets/capas/radar-marketplace-claro-480.webp 480w, assets/capas/radar-marketplace-claro-800.webp 800w, assets/capas/radar-marketplace-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso radar-marketplace: trecho real da saída do pytest em modo detalhado, com testes de precificação, limpeza de vendas, schema da ficha técnica e parser do scraper, todos PASSED, e o resumo de 25 testes aprovados."><img class="capa__img capa__img--escuro" src="assets/capas/radar-marketplace-escuro-800.webp" srcset="assets/capas/radar-marketplace-escuro-480.webp 480w, assets/capas/radar-marketplace-escuro-800.webp 800w, assets/capas/radar-marketplace-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso radar-marketplace: trecho real da saída do pytest em modo detalhado, com testes de precificação, limpeza de vendas, schema da ficha técnica e parser do scraper, todos PASSED, e o resumo de 25 testes aprovados."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio, sem dados de clientes no repositório.</strong> Na capa: saída real do pytest; agentes, integrações e RPA não têm teste (dependem de APIs externas), rodado em 05/10/2026 a partir do commit 32b4b13.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Loja de moda que vende no Mercado Livre, onde cada produto novo exigia horas de trabalho manual: pesquisar a concorrência, precificar, criar o anúncio e acompanhar a saúde dele.</dd></div>
       <div><dt>Problema</dt><dd>Pesquisar preço e volume da concorrência, precificar depois das taxas e promoções, montar título, ficha técnica e fotos, e corrigir o que o marketplace penaliza: tudo à mão, para cada produto.</dd></div>
@@ -161,6 +172,8 @@
     <p class="origem">Projeto de portfólio · marca de exemplo fictícia · caso complementar</p>
   </div>
   <div class="pilha">
+    <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/estudio-fotos-marketplace-claro-800.webp" srcset="assets/capas/estudio-fotos-marketplace-claro-480.webp 480w, assets/capas/estudio-fotos-marketplace-claro-800.webp 800w, assets/capas/estudio-fotos-marketplace-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso estudio-fotos-marketplace: trecho real da função SQL reserve_credit, que trava a linha do perfil com for update, recusa quando não há crédito e só então debita e registra a reserva. Ao lado, a execução do vitest com 50 testes aprovados e 11 pulados por exigirem PostgreSQL."><img class="capa__img capa__img--escuro" src="assets/capas/estudio-fotos-marketplace-escuro-800.webp" srcset="assets/capas/estudio-fotos-marketplace-escuro-480.webp 480w, assets/capas/estudio-fotos-marketplace-escuro-800.webp 800w, assets/capas/estudio-fotos-marketplace-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso estudio-fotos-marketplace: trecho real da função SQL reserve_credit, que trava a linha do perfil com for update, recusa quando não há crédito e só então debita e registra a reserva. Ao lado, a execução do vitest com 50 testes aprovados e 11 pulados por exigirem PostgreSQL."></div>
+      <figcaption class="capa__legenda"><strong>Projeto de portfólio com marca de exemplo fictícia.</strong> Na capa: trecho real da função SQL; vitest executado (11 testes pulados: exigem PostgreSQL), rodado em 05/10/2026 a partir do commit ca6af3b.</figcaption></figure>
     <dl class="caso__ficha">
       <div><dt>Contexto</dt><dd>Ferramenta interna para uma empresa gerar fotos de produto para marketplaces, fiéis à peça de referência, sem precisar escrever prompts. A marca “Ateliê Aurora” do exemplo é fictícia. O README traz um relato do autor sobre o problema de origem, que não é verificável pelo código.</dd></div>
       <div><dt>Problema</dt><dd>Segundo o relato do autor no README (não verificável): gerar imagens para e-commerce consumia horas dos colaboradores, com resultado inconsistente.</dd></div>
@@ -217,6 +230,6 @@
     </div>
   </div>
 </footer>
-<script src="js/movimento.js" defer></script>
+<script src="js/movimento.js" defer></script><script src="js/capas.js" defer></script>
 </body>
 </html>

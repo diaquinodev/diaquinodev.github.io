@@ -239,3 +239,12 @@ a.tag:hover { background: var(--cor-papel-alto); border-color: var(--cor-tinta);
 .formulario__erro::before { content: "Confira"; font: 400 var(--fonte-xs)/1 var(--fonte-mono); text-transform: uppercase; letter-spacing: var(--tracking-rotulo); color: var(--cor-tinta-2); }
 .formulario__erro:focus { outline: 2px solid var(--cor-foco); outline-offset: 3px; }
 .formulario[aria-busy="true"] .entrada, .formulario[aria-busy="true"] .area, .formulario[aria-busy="true"] .selecao { opacity: .75; }
+
+/* v6 · alvo de toque também na LARGURA (44 px): links curtos do menu e do rodapé ("Casos", "Sobre") tinham 36–43 px */
+.nav a { min-width: var(--alvo-toque); justify-content: center; }
+.rodape li > a { display: inline-flex; align-items: center; min-width: var(--alvo-toque); min-height: var(--alvo-toque); }
+
+/* v6 · em 320 px a etiqueta mais longa ("Gemini (opcional, há modo demo)", 318 px) não cabia e alargava a página: a etiqueta pode quebrar linha e a coluna do caso não cresce além da tela */
+.tags > li { min-width: 0; max-width: 100%; }
+.tag { max-width: 100%; white-space: normal; line-height: 1.35; padding-block: .2rem; overflow-wrap: anywhere; }
+.caso { grid-template-columns: minmax(0, 1fr); }

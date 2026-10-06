@@ -1,0 +1,41 @@
+/* imagens.css — v6 · capas dos casos (material real dos repositórios) e fundos das seções (washi, fios de grade, pincelada sumi).
+   Imagens: WebP com srcset, width/height no HTML (proporção 16:10 reservada: CLS 0), loading=lazy. Uma versão por tema; a do outro tema fica
+   display:none e, por ser lazy, nem é baixada. Movimento só com prefers-reduced-motion: no-preference (e o zoom/parallax só com mouse). */
+:root { --fundo-fibras: url("../assets/fundos/fibras-claro.webp"); --fundo-grade: url("../assets/fundos/grade-claro.webp"); --fundo-sumi: url("../assets/fundos/sumi-claro.webp"); }
+@media (prefers-color-scheme: dark) { :root:not([data-tema="claro"]) { --fundo-fibras: url("../assets/fundos/fibras-escuro.webp"); --fundo-grade: url("../assets/fundos/grade-escuro.webp"); --fundo-sumi: url("../assets/fundos/sumi-escuro.webp"); } }
+:root[data-tema="escuro"] { --fundo-fibras: url("../assets/fundos/fibras-escuro.webp"); --fundo-grade: url("../assets/fundos/grade-escuro.webp"); --fundo-sumi: url("../assets/fundos/sumi-escuro.webp"); }
+
+/* ---- fundos de seção ---- */
+.secao--washi { background: var(--fundo-fibras) 0 0 / 512px 512px, var(--cor-papel); }
+.secao--baixa { background-image: var(--fundo-grade); background-size: 256px 256px; }
+.secao--sumi { position: relative; isolation: isolate; overflow: clip; }
+.secao--sumi::before { content: ""; position: absolute; z-index: -1; inset-block-start: 8%; inset-inline-end: -12%; width: min(56rem, 120vw); aspect-ratio: 3 / 2;
+  background: var(--fundo-sumi) center / contain no-repeat; pointer-events: none; }
+@media (max-width: 40em) { .secao--sumi::before { inset-block-start: auto; inset-block-end: -26%; inset-inline-end: -34%; width: 110vw; opacity: .5; } }
+
+/* ---- capa ---- */
+.capa { margin: 0; }
+.capa__quadro { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: var(--cor-papel-baixo); border: var(--borda-fina) solid var(--cor-linha); border-radius: var(--raio-1, 2px); }
+.capa__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.capa__img--escuro { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-tema="claro"]) .capa__img--claro { display: none; } :root:not([data-tema="claro"]) .capa__img--escuro { display: block; } }
+:root[data-tema="escuro"] .capa__img--claro { display: none; }
+:root[data-tema="escuro"] .capa__img--escuro { display: block; }
+.capa__legenda { margin-block-start: var(--esp-3); font-size: var(--fonte-sm); color: var(--cor-tinta-2); max-width: var(--medida-texto); }
+.capa__legenda strong { color: var(--cor-tinta); font-weight: 500; }
+.capa--cartao { margin-block-end: var(--esp-1); }
+.capa--caso { margin-block-end: var(--esp-2); }
+
+/* ---- movimento sóbrio ---- */
+@media (prefers-reduced-motion: no-preference) {
+  /* revelação ao rolar: a imagem "sobe" de dentro do quadro (clip + leve escala), sem mexer no layout */
+  .capa--oculta .capa__quadro { clip-path: inset(0 0 100% 0); }
+  .capa--oculta .capa__img { transform: scale(1.06); }
+  .capa--revela .capa__quadro { transition: clip-path 900ms var(--mov-curva, cubic-bezier(.2, .7, .2, 1)); }
+  .capa--revela .capa__img { transition: transform 1200ms var(--mov-curva, cubic-bezier(.2, .7, .2, 1)); }
+  /* hover (só mouse): zoom leve + parallax de poucos px seguindo o ponteiro (--px/--py vêm de js/capas.js) */
+  @media (hover: hover) and (pointer: fine) {
+    .capa__img { transition: transform 600ms var(--mov-curva, cubic-bezier(.2, .7, .2, 1)); will-change: auto; }
+    .cartao-projeto:hover .capa__img, .capa--caso:hover .capa__img { transform: scale(1.035) translate(var(--px, 0px), var(--py, 0px)); }
+  }
+}

@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="css/componentes.css">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/movimento.css">
+<link rel="stylesheet" href="css/imagens.css">
 <link rel="stylesheet" href="css/conciliacao.css">
 <link rel="stylesheet" href="css/hero.css">
 <script src="js/tema.js"></script>
@@ -137,11 +138,12 @@
     </ul>
   </div>
 </section>
-<section class="secao secao--compacta" aria-labelledby="t-casos">
+<section class="secao secao--compacta secao--washi" aria-labelledby="t-casos">
   <div class="container">
     <div class="cabeca-secao"><p class="rotulo">Casos</p><h2 id="t-casos">Código que dá para conferir<span class="ponto">.</span></h2>
     <p class="lead">Três dos seis casos, todos no GitHub, com testes e CI. São projetos de portfólio: os dados são fictícios ou sintéticos.</p></div>
     <ul class="grade grade--media sem-lista"><li><article class="cartao-projeto" id="card-auditor-de-repasses" data-conferido>
+  <div class="capa capa--cartao" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/auditor-de-repasses-claro-800.webp" srcset="assets/capas/auditor-de-repasses-claro-480.webp 480w, assets/capas/auditor-de-repasses-claro-800.webp 800w, assets/capas/auditor-de-repasses-claro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso auditor-de-repasses: saída real do terminal do eval em modo demo, com 20 cenários de divergências plantadas. Nos cinco tipos de divergência, as achadas são iguais às plantadas, sem perdidas nem falsas; recall do motor de 100%, extração de regras correta em 20 de 20 e resultado APROVADO. Ao lado, pytest com 66 testes passando."><img class="capa__img capa__img--escuro" src="assets/capas/auditor-de-repasses-escuro-800.webp" srcset="assets/capas/auditor-de-repasses-escuro-480.webp 480w, assets/capas/auditor-de-repasses-escuro-800.webp 800w, assets/capas/auditor-de-repasses-escuro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso auditor-de-repasses: saída real do terminal do eval em modo demo, com 20 cenários de divergências plantadas. Nos cinco tipos de divergência, as achadas são iguais às plantadas, sem perdidas nem falsas; recall do motor de 100%, extração de regras correta em 20 de 20 e resultado APROVADO. Ao lado, pytest com 66 testes passando."></div></div>
   <div class="cartao-projeto__topo"><span class="cartao-projeto__n">01</span><h3 class="cartao-projeto__nome"><a href="projetos.html#auditor-de-repasses">auditor-de-repasses<span class="sr-only"> (ler o caso)</span></a></h3></div>
   <p class="titulo cartao-projeto__titulo">Conferir o repasse do gateway contra o contrato</p>
   <p class="cartao-projeto__resumo">Concilia taxas e prazos de repasse contra o contrato. IA só onde há texto; conta em código testado; pessoa aprova.</p>
@@ -150,6 +152,7 @@
   <dl class="cartao-projeto__fatos"><dt>Testes</dt><dd><span data-conta="66">66</span> · pytest, ruff e mypy</dd><dt>CI</dt><dd>GitHub Actions</dd><dt>Origem</dt><dd>portfólio, dados fictícios</dd></dl>
   <span class="conferido "><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span>
 </article></li><li><article class="cartao-projeto" id="card-conciliacao-bancaria-automacao" data-conferido>
+  <div class="capa capa--cartao" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/conciliacao-bancaria-automacao-claro-800.webp" srcset="assets/capas/conciliacao-bancaria-automacao-claro-480.webp 480w, assets/capas/conciliacao-bancaria-automacao-claro-800.webp 800w, assets/capas/conciliacao-bancaria-automacao-claro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso conciliacao-bancaria-automacao: saída real do terminal da esteira rodada duas vezes sobre o mesmo lote sintético. Na primeira execução, 216 novas transações inseridas com chave SHA-256 única; na segunda, as 216 transações idênticas são detectadas e ignoradas. Ao lado, pytest com 30 testes passando."><img class="capa__img capa__img--escuro" src="assets/capas/conciliacao-bancaria-automacao-escuro-800.webp" srcset="assets/capas/conciliacao-bancaria-automacao-escuro-480.webp 480w, assets/capas/conciliacao-bancaria-automacao-escuro-800.webp 800w, assets/capas/conciliacao-bancaria-automacao-escuro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso conciliacao-bancaria-automacao: saída real do terminal da esteira rodada duas vezes sobre o mesmo lote sintético. Na primeira execução, 216 novas transações inseridas com chave SHA-256 única; na segunda, as 216 transações idênticas são detectadas e ignoradas. Ao lado, pytest com 30 testes passando."></div></div>
   <div class="cartao-projeto__topo"><span class="cartao-projeto__n">02</span><h3 class="cartao-projeto__nome"><a href="projetos.html#conciliacao-bancaria-automacao">conciliacao-bancaria-automacao<span class="sr-only"> (ler o caso)</span></a></h3></div>
   <p class="titulo cartao-projeto__titulo">Esteira diária de extratos de vários bancos</p>
   <p class="cartao-projeto__resumo">Extração, ETL, SQL e painel para consolidar extratos de 8 bancos fictícios, com carga idempotente e regras de divergência.</p>
@@ -158,6 +161,7 @@
   <dl class="cartao-projeto__fatos"><dt>Testes</dt><dd><span data-conta="30">30</span> automatizados</dd><dt>CI</dt><dd>GitHub Actions · Python 3.12 e 3.13</dd><dt>Origem</dt><dd>portfólio, dados sintéticos</dd></dl>
   <span class="conferido "><svg class="conferido__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5 6 12l7.5-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg>conferido</span>
 </article></li><li><article class="cartao-projeto" id="card-dashboard-precificacao">
+  <div class="capa capa--cartao" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/dashboard-precificacao-claro-800.webp" srcset="assets/capas/dashboard-precificacao-claro-480.webp 480w, assets/capas/dashboard-precificacao-claro-800.webp 800w, assets/capas/dashboard-precificacao-claro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."><img class="capa__img capa__img--escuro" src="assets/capas/dashboard-precificacao-escuro-800.webp" srcset="assets/capas/dashboard-precificacao-escuro-480.webp 480w, assets/capas/dashboard-precificacao-escuro-800.webp 800w, assets/capas/dashboard-precificacao-escuro-1200.webp 1200w" sizes="(min-width: 72rem) 22rem, (min-width: 46rem) 44vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."></div></div>
   <div class="cartao-projeto__topo"><span class="cartao-projeto__n">03</span><h3 class="cartao-projeto__nome"><a href="projetos.html#dashboard-precificacao">dashboard-precificacao<span class="sr-only"> (ler o caso)</span></a></h3></div>
   <p class="titulo cartao-projeto__titulo">Preço certo por canal, sem prejuízo escondido</p>
   <p class="cartao-projeto__resumo">Dashboard que calcula o preço por marketplace resolvendo a taxa por faixa. Roda no navegador, com dados de exemplo fictícios.</p>
@@ -225,6 +229,6 @@
   </div>
 </footer>
 <script src="js/conciliacao.js"></script>
-<script src="js/movimento.js" defer></script>
+<script src="js/movimento.js" defer></script><script src="js/capas.js" defer></script>
 </body>
 </html>
