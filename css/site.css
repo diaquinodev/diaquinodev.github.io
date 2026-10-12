@@ -105,3 +105,36 @@
 .bonus--bloco { display: grid; gap: var(--esp-1); margin-block-start: var(--esp-7); max-width: var(--medida-texto); }
 .bonus--bloco p { margin-block-start: 0; }
 .bonus--bloco h3 { font-size: var(--fonte-md); }
+
+
+/* v7 · casos para leigo (pergunta de negócio no título, detalhes técnicos recolhidos) e pacotes de serviço */
+.cartao-projeto__tema { margin: 0; }
+.cartao-projeto__pergunta { font: 500 var(--fonte-lg)/1.2 var(--fonte-titulo); letter-spacing: var(--tracking-titulo); }
+.cartao-projeto__pergunta a { text-decoration: none; }
+.cartao-projeto__pergunta a::after { content: ""; position: absolute; inset: 0; }  /* cartão inteiro clicável */
+.cartao-projeto:has(.cartao-projeto__pergunta a:focus-visible) { outline: 2px solid var(--cor-foco); outline-offset: 3px; }
+.cartao-projeto__pergunta a:focus-visible { outline: none; }
+.cartao-projeto[data-conferido]:has(.cartao-projeto__pergunta a:focus-visible) .conferido { visibility: visible; opacity: 1; }
+.cartao-projeto__repo { font: 400 var(--fonte-xs)/1.5 var(--fonte-mono); color: var(--cor-tinta-2); overflow-wrap: anywhere; }
+.grade.grade--quatro { grid-template-columns: 1fr; }
+@media (min-width: 40em) { .grade.grade--quatro { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--esp-8); } }
+.origem--livre { border-style: none; padding-inline: 0; color: var(--cor-tinta-2); }
+.caso__resumo { max-width: var(--medida-texto); font-size: var(--fonte-md); line-height: 1.5; }
+.caso__mostra, .caso__limite { max-width: var(--medida-texto); }
+.caso__limite { color: var(--cor-tinta-2); font-size: var(--fonte-sm); }
+.caso__mostra strong, .caso__limite strong { font-weight: 500; color: var(--cor-tinta); }
+.caso__tecnico { border-block: var(--borda-fina) solid var(--cor-linha-forte); }
+.caso__tecnico summary { display: flex; justify-content: space-between; align-items: center; gap: var(--esp-4); min-height: var(--alvo-toque); padding-block: var(--esp-3); cursor: pointer; list-style: none; font: 500 var(--fonte-sm)/1.4 var(--fonte-corpo); }
+.caso__tecnico summary::-webkit-details-marker { display: none; }
+.caso__tecnico summary::after { content: "+"; font: 400 var(--fonte-lg)/1 var(--fonte-mono); flex: none; }
+.caso__tecnico[open] > summary::after { content: "–"; }
+.caso__tecnico summary:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.caso__tecnico .caso__ficha { padding-block-end: var(--esp-5); }
+.servico__para, .servico__ferr { display: grid; gap: var(--esp-1); max-width: 46ch; margin-block-start: var(--esp-4); }
+.servico__para { font-size: var(--fonte-md); line-height: 1.5; }
+.servico__ferr { font-size: var(--fonte-sm); color: var(--cor-tinta-2); margin-block-start: var(--esp-3); }
+.servico__para .rotulo, .servico__ferr .rotulo { font-size: var(--fonte-xs); }
+.servico__detalhes p { max-width: var(--medida-texto); }
+.servico__detalhes .casos-links li { padding-inline-start: 0; }
+.servico__detalhes .casos-links li::before { content: none; }
+.servico__detalhes .casos-links a { display: inline-flex; align-items: center; min-height: var(--alvo-toque); }
