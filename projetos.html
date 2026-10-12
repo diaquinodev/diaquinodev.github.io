@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Casos · Diego Aquino · Analista de Dados</title>
-<meta name="description" content="Seis estudos de caso de projetos de portfólio com dados fictícios ou sintéticos: conciliação, ETL, integração com ERP, dashboards e automação. Testes e CI no GitHub.">
+<meta name="description" content="Seis estudos de caso de projetos de portfólio com dados fictícios ou sintéticos: conciliação, ETL, integração via API, dashboards e automação. Testes e CI no GitHub.">
 <link rel="canonical" href="https://diaquinodev.github.io/projetos.html">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EFE8D8" media="(prefers-color-scheme: light)">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego Aquino · Dados que batem.">
 <meta property="og:title" content="Casos · Diego Aquino · Analista de Dados">
-<meta property="og:description" content="Seis estudos de caso de projetos de portfólio com dados fictícios ou sintéticos: conciliação, ETL, integração com ERP, dashboards e automação. Testes e CI no GitHub.">
+<meta property="og:description" content="Seis estudos de caso de projetos de portfólio com dados fictícios ou sintéticos: conciliação, ETL, integração via API, dashboards e automação. Testes e CI no GitHub.">
 <meta property="og:url" content="https://diaquinodev.github.io/projetos.html">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://diaquinodev.github.io/assets/og.png">
@@ -115,7 +115,7 @@
     <figure class="capa capa--caso" data-capa><div class="capa__quadro"><img class="capa__img capa__img--claro" src="assets/capas/dashboard-precificacao-claro-800.webp" srcset="assets/capas/dashboard-precificacao-claro-480.webp 480w, assets/capas/dashboard-precificacao-claro-800.webp 800w, assets/capas/dashboard-precificacao-claro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."><img class="capa__img capa__img--escuro" src="assets/capas/dashboard-precificacao-escuro-800.webp" srcset="assets/capas/dashboard-precificacao-escuro-480.webp 480w, assets/capas/dashboard-precificacao-escuro-800.webp 800w, assets/capas/dashboard-precificacao-escuro-1200.webp 1200w" sizes="(min-width: 64em) 41rem, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Capa do caso dashboard-precificacao: trecho real do código do motor de precificação (pricing.js), com o comentário que define Valor Base, lucro extra e margem e a fórmula do preço em cada faixa de taxa. Ao lado, a execução dos testes de unidade com 32 aprovados e nenhuma falha."></div>
       <figcaption class="capa__legenda"><strong>Projeto de portfólio com dados de exemplo fictícios.</strong> Na capa: trecho real do motor de cálculo; testes de unidade executados, rodado em 05/10/2026 a partir do commit af38327.</figcaption></figure>
     <dl class="caso__ficha">
-      <div><dt>Contexto</dt><dd>Quem vende o mesmo produto em vários marketplaces (Shopee, Mercado Livre, TikTok Shop e Shein) precisa saber por quanto anunciar em cada canal. É a reescrita, com testes, de uma ferramenta que fiz antes para consultorias de e-commerce. Roda no navegador, sem login.</dd></div>
+      <div><dt>Contexto</dt><dd>Quem vende o mesmo produto em vários marketplaces (Shopee, Mercado Livre, TikTok Shop e Shein) precisa saber por quanto anunciar em cada canal. É a reescrita, com testes, de uma ferramenta que fiz antes para consultorias. Roda no navegador, sem login.</dd></div>
       <div><dt>Problema</dt><dd>A taxa muda conforme a faixa de preço, e o preço depende da taxa. Na planilha, o erro comum é usar a taxa da faixa errada. Exemplo do README: a fórmula simples usa a taxa da faixa errada e, nesse preço, o marketplace cobra mais, então cada venda dá prejuízo; o preço certo fica numa faixa acima.</dd></div>
       <div><dt>Abordagem</dt><dd>Um motor de cálculo puro (sem DOM) resolve o preço em cada faixa de taxa e fica com o menor preço consistente; se nenhuma faixa serve, responde “margem inatingível” em vez de um número absurdo. A importação de catálogo (CSV ou Google Sheets) relata cada linha ignorada e o motivo. As taxas são editáveis, com vigência e fonte.</dd></div>
       <div><dt>Stack</dt><dd><ul class="tags" role="list"><li><span class="tag tag--cheia">JavaScript (JSDoc e TypeScript strict)</span></li><li><span class="tag tag--cheia">Node.js</span></li><li><span class="tag tag--cheia">ESLint</span></li><li><span class="tag tag--cheia">Prettier</span></li><li><span class="tag tag--cheia">GitHub Actions</span></li></ul></dd></div>
